@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/raw/
+data/images/
+data/captions/
+*.zip
+
+# Model artifacts - optional
+artifacts/*.pt
+artifacts/*.pth
+artifacts/*.pkl
+artifacts/*.json
+
+# Keep folder placeholders
+!artifacts/.gitkeep
+!data/.gitkeep
+
+# IDE
+.idea/
+.vscode/
