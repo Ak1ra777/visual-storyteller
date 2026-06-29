@@ -26,7 +26,6 @@ visual-storyteller/
 │   └── .gitkeep
 ├── data/
 │   └── .gitkeep
-├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
@@ -153,33 +152,54 @@ Possible improvements:
 * add an attention mechanism
 * use a transformer-based decoder
 
-## How to Run
+## How to Run in Google Colab
 
-### 1. Install dependencies
+This project was developed and tested in Google Colab with a GPU runtime. The notebooks use standard Colab packages such as PyTorch, torchvision, pandas, scikit-learn, matplotlib, Pillow, and tqdm.
 
-```bash
-pip install -r requirements.txt
+### 1. Prepare the dataset
+
+Upload the provided dataset zip file to Google Drive at:
+
+```text
+/content/drive/MyDrive/caption_data.zip
 ```
 
-### 2. Run training
+If the file is stored somewhere else, update `ZIP_PATH` near the top of both notebooks.
 
-Open and run:
+### 2. Run training notebook
+
+Open `notebooks/data_and_training.ipynb` in Google Colab, select a GPU runtime, and run all cells.
 
 ```text
 notebooks/data_and_training.ipynb
 ```
 
-This notebook trains the model and saves the artifacts.
+This notebook extracts the dataset, trains the model, shows training and validation loss, and saves the trained artifacts to:
 
-### 3. Run inference
+```text
+/content/drive/MyDrive/deep_learning_final/artifacts
+```
 
-Open and run:
+The saved files are:
+
+```text
+best_model.pt
+vocab.pkl
+config.json
+training_history.json
+```
+
+### 3. Run inference notebook
+
+After the training notebook has created the artifacts, open and run:
 
 ```text
 notebooks/inference.ipynb
 ```
 
-This notebook loads the saved model artifacts and generates captions for unseen test images.
+This notebook loads the saved model artifacts, reconstructs the trained model, defines `generate_caption(image_path: str, model: any) -> str`, and generates captions for unseen test images.
+
+If the artifact folder is stored somewhere else, update `ARTIFACT_DIR` in both notebooks.
 
 ## Notes
 
